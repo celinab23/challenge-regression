@@ -28,6 +28,16 @@ The objective is to train a neural network regression model to predict the price
     - Feature engineering <br>
         Calculated the distance of each property to the capital of the province it is situated in. <br><br>
 
+- Day 3: <br>
+    - Followed part of the Introduction to Deep Learning with Keras course in DataCamp.<br>
+    - Read about how to create a neural network regression model.<br>
+    - From there, a very basic model was built. However, was unable to measure its accuracy.<br>
+    - Part of the pre-processing had to be remade, to appropiately handle type of property<br><br>
+
+- Day 4:<br>
+    - Model was completed but returning very low accurary (299880).<br>
+    - Data preprocessing notebook transferred to .py file.
+
 ### Personal situation<br>
 Data preprocessing took a significant amount of time. <br>
 Feature engineering was also a time-consuming challege. <br>
