@@ -1,6 +1,12 @@
 import pandas as pd
 from math import radians, sin, cos, sqrt, atan2
 
+# Function to encode property subtype
+def encode_sub_type(subtype_of_property, sub_types_dict):
+    if subtype_of_property in sub_types_dict.keys():
+        subtype_of_property = sub_types_dict[subtype_of_property]
+    return subtype_of_property
+
 
 # Function to convert build condition to ordinal
 def convert_build_condition(building_condition) -> int:
@@ -20,6 +26,25 @@ def convert_build_condition(building_condition) -> int:
     if building_condition == 'to restore':
         return 0
     elif building_condition == 'to renovate':
+        return 1
+    else:
+        return 2
+
+
+# Function to encode the kitchen's state of the property
+def encode_kitchen(kitchen_state) -> int:
+    """
+    Transforms state of the property's kitchen to an ordinal numeric value
+
+    PARAMS:
+    kitchen_state -str: string kitchen status
+
+    RETURNS
+    0, 1, 2: if 'not installed', 'installed' or 'equipped' respectively
+    """
+    if kitchen_state == 'not installed':
+        return 0
+    elif kitchen_state == 'installed':
         return 1
     else:
         return 2
