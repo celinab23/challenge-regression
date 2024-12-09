@@ -3,7 +3,7 @@
 #### The final dataset
 
 The data set used was the same from the previuos state of this project: data analysis. <br>
-For the pre-rpocessing, these fields were removed: <br><br>
+For the pre-processing, these fields were removed: <br><br>
 
 - Unecessary colums: swimming_pool, furnished, open_fire, sub_property_group_encoded, plot surface <br>
 - Columns which have high correlation with others: bedroom_nr <br>
