@@ -22,7 +22,7 @@ The following steps have been taken towards this goal: <br>
 
 ### Usage
 
-- Start with data-preprocessing.ipynb and then proceed with model.ipynb<br>
+- Start with data-preprocessing and then proceed with model<br>
 
 If using via Jupyter notebooks:<br>
 - Execute the code cells in order from top to bottom.<br><br>
@@ -64,9 +64,9 @@ If using via python files:<br>
     - Hyperparameter tuning. <br><br>
 
 Day 6:<br>
-    - OOP and black formating and SHAP implementation
-    - Final version of all files prepared.
-    - Evaluation report
+    - OOP and black formating and SHAP implementation<br>
+    - Final version of all files prepared.<br>
+    - Evaluation report<br>
 
 
 ### Personal situation<br>
