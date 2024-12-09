@@ -1,5 +1,6 @@
-import pandas as pd
+# import pandas as pd
 from math import radians, sin, cos, sqrt, atan2
+
 
 # Function to encode property subtype
 def encode_sub_type(subtype_of_property, sub_types_dict):
@@ -22,10 +23,10 @@ def convert_build_condition(building_condition) -> int:
     1 - int: if state is 'to renovate'.
     2 - int: if state is 'good'.
     """
-    
-    if building_condition == 'to restore':
+
+    if building_condition == "to restore":
         return 0
-    elif building_condition == 'to renovate':
+    elif building_condition == "to renovate":
         return 1
     else:
         return 2
@@ -42,9 +43,9 @@ def encode_kitchen(kitchen_state) -> int:
     RETURNS
     0, 1, 2: if 'not installed', 'installed' or 'equipped' respectively
     """
-    if kitchen_state == 'not installed':
+    if kitchen_state == "not installed":
         return 0
-    elif kitchen_state == 'installed':
+    elif kitchen_state == "installed":
         return 1
     else:
         return 2
@@ -62,9 +63,9 @@ def get_latitude(zip_code, zip_codes_df):
     RETURNS
     latitude -float: latitude of the observation
     """
-    row = zip_codes_df[zip_codes_df['zip_code_col'] == zip_code]
-    latitude = row['latitude'].values[0]
-    
+    row = zip_codes_df[zip_codes_df["zip_code_col"] == zip_code]
+    latitude = row["latitude"].values[0]
+
     return latitude
 
 
@@ -80,8 +81,8 @@ def get_longitude(zip_code, zip_codes_df):
     RETURNS
     longitude -float: latitude of the observation
     """
-    row = zip_codes_df[zip_codes_df['zip_code_col'] == zip_code]
-    longitude = row['longitude'].values[0]
+    row = zip_codes_df[zip_codes_df["zip_code_col"] == zip_code]
+    longitude = row["longitude"].values[0]
     return longitude
 
 
@@ -97,28 +98,51 @@ def get_distance(row, provinces_df):
     RETURN
     Distance in kilometers, rounded to two decimal points
     """
-    lat1 = row['latitude']
-    lon1 = row['longitude']
+    lat1 = row["latitude"]
+    lon1 = row["longitude"]
 
-    row_province = row['province']
-    
-    province_data = provinces_df[provinces_df['province'] == row_province]
+    row_province = row["province"]
 
-    lat2 = province_data['latitude'].values[0]
-    lon2 = province_data['longitude'].values[0]
+    province_data = provinces_df[provinces_df["province"] == row_province]
+
+    lat2 = province_data["latitude"].values[0]
+    lon2 = province_data["longitude"].values[0]
 
     # Convert latitude and longitude from degrees to radians
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
-    
+
     # Haversine formula
     dlat = lat2 - lat1
     dlon = lon2 - lon1
-    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
     # Earth's radius in kilometers
     radius_of_earth_km = 6371
 
-    # Calculate distance  
+    # Calculate distance
     distance = round(radius_of_earth_km * c, 2)
     return distance
+
+
+def remove_outliers(df, lower_ptc, upper_ptc):
+    """
+    Removes outliers from a dataframe according to the given percentage
+    limits of the lower and upper quantile limits.
+
+    PARAMS:
+    df -DataFrame: the dataframe from which outliers are to be removed.
+    lower_ptc -float: the percentage for the lower limit.
+    upper_prc -float: the percentage for the upper limit.
+
+    RETURNS
+    df - The updated dataframe
+    """
+    for col in df:
+        Q1 = df[col].quantile(lower_ptc)
+        Q3 = df[col].quantile(upper_ptc)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        df = df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
+    return df

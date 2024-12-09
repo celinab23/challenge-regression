@@ -30,7 +30,6 @@ If using via Jupyter notebooks:<br>
 If using via python files:<br>
 - Execute ```python <file_name (data-preprocess.py or ml_model.py)>``` on your console.<br>
 
-(visuals)
 
 ### Contributors<br>
 - Celina Bolaños<br><br>
@@ -62,8 +61,12 @@ If using via python files:<br>
 
 - Day 5:<br>
     - Measure model's performance.<br>
-    - Hyperparameter tuning. <br>
-    - Test with different versions of the data set.<br><br>
+    - Hyperparameter tuning. <br><br>
+
+Day 6:<br>
+    - OOP and black formating and SHAP implementation
+    - Final version of all files prepared.
+    - Evaluation report
 
 
 ### Personal situation<br>
