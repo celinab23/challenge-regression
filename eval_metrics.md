@@ -8,7 +8,7 @@ For the pre-rpocessing, these fields were removed: <br><br>
 - Unecessary colums: swimming_pool, furnished, open_fire, sub_property_group_encoded, plot surface <br>
 - Columns which have high correlation with others: bedroom_nr <br>
 - Properties of type "other" and "mixed used building". <br>
-- Apartments with more than 4 facades <br<br>>
+- Apartments with more than 4 facades <br><br>
 
 Further in data preparations, the following steps were taken: <br>
 - Encoded the sub-type of the property from 1 to 20 according to the average price per property sub-type.<br>
@@ -62,7 +62,8 @@ model.compile(optimizer=optimizer, loss="mse", metrics=["mae"])
 Data as split into 80% for training and 20% for testing.<br>
 Test data was split into two batches:<br>
     - One for testing during hyperparameters tuning<br>
-    - Another for final test once the model was completed.<br><br>
+    - Another for final test once the model was completed.
+Finally, the test data was put back into one batch for the final verion of the model file.
 
 
 Accurary for both training and test set was around 20% as per the below MAPE.<br><br>
@@ -72,7 +73,6 @@ Accurary for both training and test set was around 20% as per the below MAPE.<br
 Training and predictions take less than a mitue each.<br><br>
 
 #### Evaluation of the model:
-![Model metrics] (./utils/model_metrics.png)
 
 MAE training set: 76834 <br>
 MAE test set: 84285         <br>                                                  
