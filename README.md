@@ -11,7 +11,7 @@ The following steps have been taken towards this goal: <br>
  - Hyperparameter tuning<br><br>
 
  In the repository you will find two versions of the work: Jupyter notebooks and python files.<br>
- For a detailed step by step guide of the projects, please consult the files in the "notebooks" folder. <br>
+ For a detailed step by step guide of the projects, please consult the notebook files. <br>
  For a straight forward version of the python code used for data pre-processing and machine learning, <br>
  please refer to the files on the main page of the repository.
 
